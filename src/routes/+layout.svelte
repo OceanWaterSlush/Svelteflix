@@ -54,4 +54,11 @@
 		display: flex;
 		gap: 1rem;
 	}
+
+	footer {
+		display: flex;
+		justify-content: center;
+
+		height: 5rem;
+	}
 </style>
