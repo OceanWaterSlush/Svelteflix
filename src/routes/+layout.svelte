@@ -1,10 +1,11 @@
 <script>
+	import logo from '$lib/images/logo.svg';
 	import tmdb from '$lib/images/tmdb.svg';
 	import '../styles.css';
 </script>
 
 <nav>
-	<a href="/"><img alt="Svelteflix" src="/images/logo.svg" /></a>
+	<a href="/"><img alt="Svelteflix" src={logo} /></a>
 	<div class="links">
 		<a href="/search">Search</a>
 		<a href="/watchlist">Watchlist</a>
