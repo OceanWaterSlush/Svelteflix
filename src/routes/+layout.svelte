@@ -1,9 +1,10 @@
 <script>
+	import logo from '$lib/images/logo.svg';
 	import '../styles.css';
 </script>
 
 <nav>
-	<a href="/">SvelteFix</a>
+	<a href="/"><img alt="Svelteflix" src={logo} /></a>
 	<div class="links">
 		<a href="/search">Search</a>
 		<a href="/watchlist">Watchlist</a>
@@ -30,5 +31,9 @@
 	a {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	img {
+		height: 1rem;
 	}
 </style>
