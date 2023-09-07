@@ -9,9 +9,14 @@ body {
 }
 
 html {
+	--accent: hsl(1, 59%, 50%);
+	--column: 80rem;
+	--side: 1rem;
+
 	background: radial-gradient(circle at 50% 0%, hsl(0, 0%, 8%), hsl(0, 0%, 2%));
 	background-attachment: fixed;
 	background-size: 100vw 100vh;
+
 	color: #ccc;
 }
 

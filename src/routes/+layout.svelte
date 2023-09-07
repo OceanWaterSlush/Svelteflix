@@ -18,6 +18,17 @@
 		justify-content: space-between;
 
 		width: 100%;
+		max-width: var(--column);
+
 		height: 3rem;
+
+		padding: 0 var(--side);
+
+		color: var(--accent);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
 	}
 </style>
