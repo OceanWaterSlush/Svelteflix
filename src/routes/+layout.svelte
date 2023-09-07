@@ -1,4 +1,5 @@
 <script>
+	import tmdb from '$lib/images/tmdb.svg';
 	import '../styles.css';
 </script>
 
@@ -10,6 +11,19 @@
 		<a href="/login">Login</a>
 	</div>
 </nav>
+
+<main>
+	<slot />
+</main>
+
+<footer>
+	<p>
+		Data provided by
+		<a href="https://www.themoviedb.org/">
+			<img alt="The Movie DB" src={tmdb} />
+		</a>
+	</p>
+</footer>
 
 <style>
 	nav {
