@@ -1,3 +1,7 @@
+<script>
+	import '../styles.css';
+</script>
+
 <nav>
 	<a href="/">SvelteFix</a>
 
