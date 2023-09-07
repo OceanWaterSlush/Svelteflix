@@ -36,4 +36,9 @@
 	img {
 		height: 1rem;
 	}
+
+	.links {
+		display: flex;
+		gap: 1rem;
+	}
 </style>
