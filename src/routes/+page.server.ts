@@ -1,14 +1,22 @@
-import type { MovieList } from '$lib/types.js';
+import type { MovieDetails, MovieList } from '$lib/types.js';
 import { TMDB_API_KEY } from '$env/static/private';
 
 const base = 'https://api.themoviedb.org/3';
+const apiKeyQueryParameter = `?api_key=${TMDB_API_KEY}`;
 
 export async function load({ fetch }) {
-	const response = await fetch(`${base}/trending/movie/day?api_key=${TMDB_API_KEY}`);
+	const trendingMoviesResponse = await fetch(`${base}/trending/movie/day${apiKeyQueryParameter}`);
+	const trendingMovies = (await trendingMoviesResponse.json()) as MovieList;
 
-	const trending = (await response.json()) as MovieList;
+	const featuredMovie = trendingMovies.results[0];
+
+	const featuredMovieDataResponse = await fetch(
+		`${base}/movie/${featuredMovie.id}${apiKeyQueryParameter}`
+	);
+	const featuredMovieData = (await featuredMovieDataResponse.json()) as MovieDetails;
 
 	return {
-		trending
+		trendingMovies,
+		featuredMovieData
 	};
 }
