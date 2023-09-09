@@ -17,11 +17,33 @@
 		style="aspect-ratio: {backdrop.aspect_ratio}"
 	/>
 
-	<img alt={movie.title} src={media(logo.file_path, 1280)} />
+	<img
+		class="logo"
+		alt={movie.title}
+		src={media(logo.file_path, 1280)}
+		style="aspect-ratio: {logo.aspect_ratio}"
+	/>
 </a>
 
 <style>
+	a {
+		display: flex;
+	}
+
 	.backdrop {
 		width: 100%;
+	}
+
+	.logo {
+		position: absolute;
+		left: 1rem;
+		right: 0;
+
+		height: 100%;
+		width: 30%;
+
+		object-fit: contain;
+
+		filter: drop-shadow(0 0 1rem black);
 	}
 </style>
