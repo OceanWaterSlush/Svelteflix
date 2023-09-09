@@ -6,6 +6,6 @@
 	console.log(data);
 </script>
 
-<h1>Top trending movies</h1>
+<h1 class="column">Top trending movies</h1>
 
 <Hero movie={data.featured} />
