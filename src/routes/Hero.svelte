@@ -9,5 +9,16 @@
 </script>
 
 <a href="/movie/{movie.id}">
-	<img alt={movie.title} src={media(backdrop.file_path, 1280)} />
+	<img
+		class="backdrop"
+		alt={movie.title}
+		src={media(backdrop.file_path, 1280)}
+		style="aspect-ratio: {backdrop.aspect_ratio}"
+	/>
 </a>
+
+<style>
+	.backdrop {
+		width: 100%;
+	}
+</style>
