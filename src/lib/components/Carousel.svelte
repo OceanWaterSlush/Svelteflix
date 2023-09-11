@@ -30,6 +30,10 @@
 		scroll-padding-left: --padding;
 	}
 
+	.carousel::-webkit-scrollbar {
+		display: none;
+	}
+
 	a {
 		height: 100%;
 	}
