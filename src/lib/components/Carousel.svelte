@@ -15,7 +15,7 @@
 
 <style>
 	.carousel {
-		--padding: var(--side);
+		--padding: max(var(--side), calc(var(--side) + (100vw - var(--column)) / 2));
 
 		display: flex;
 		gap: 1rem;
