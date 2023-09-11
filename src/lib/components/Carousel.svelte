@@ -12,3 +12,29 @@
 		</a>
 	{/each}
 </div>
+
+<style>
+	.carousel {
+		--padding: var(--side);
+
+		display: flex;
+		gap: 1rem;
+
+		padding: 0 var(--padding);
+
+		height: 10rem;
+
+		overflow-x: scroll;
+
+		scroll-snap-type: mandatory;
+		scroll-padding-left: --padding;
+	}
+
+	a {
+		height: 100%;
+	}
+
+	img {
+		height: 100%;
+	}
+</style>
