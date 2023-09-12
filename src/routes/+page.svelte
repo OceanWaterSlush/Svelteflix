@@ -12,3 +12,5 @@
 <Hero movie={data.featured} />
 
 <Carousel movies={data.trending.results} />
+<Carousel movies={data.now_playing.results} />
+<Carousel movies={data.upcoming.results} />
