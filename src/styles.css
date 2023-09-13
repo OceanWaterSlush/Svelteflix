@@ -29,7 +29,7 @@ body {
 }
 
 .column {
-	width: var(--column);
+	max-width: var(--column);
 
 	margin-left: auto;
 	margin-right: auto;
