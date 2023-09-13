@@ -10,6 +10,7 @@ export async function load({ params, url, fetch }) {
 	const data = (await api.get(fetch, view.endpoint, { page, api_key: TMDB_API_KEY })) as MovieList;
 
 	return {
+		view: params.view,
 		title: view.title,
 		endpoint: view.endpoint,
 		movies: data.results,
