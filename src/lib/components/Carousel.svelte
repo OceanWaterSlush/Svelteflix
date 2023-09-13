@@ -1,9 +1,17 @@
 <script lang="ts">
 	import type { MovieListResult } from '$lib/types';
 	import { media } from '$lib/api';
+	import type { View } from '$lib/views';
 
 	export let movies: MovieListResult[];
+	export let view: View;
+	export let href: string;
 </script>
+
+<h2 class="column">
+	{view.title}
+	{#if href}<a {href}>see all</a>{/if}
+</h2>
 
 <div class="carousel">
 	{#each movies as movie}
