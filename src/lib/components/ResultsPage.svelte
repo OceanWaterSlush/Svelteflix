@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { media } from '$lib/api';
 	import type { MovieListResult } from '$lib/types';
+	import { onMount } from 'svelte';
 
 	export let movies: MovieListResult[];
 	export let next: string | null;
@@ -8,14 +9,40 @@
 	let viewport: HTMLDivElement;
 	let results: HTMLDivElement;
 
+	let a = 0;
+	let b = movies.length;
+
+	let padding_top = 0;
+	let padding_bottom = 0;
+
+	let item_width: number;
+	let item_height: number;
+
+	let num_columns = 4;
+
 	function handle_scroll() {
 		console.log('scrolling');
 	}
+
+	function handle_resize() {
+		const first = results.firstChild;
+
+		item_width = first.offsetWidth;
+		item_height = first.offsetHeight;
+
+		num_columns = 4;
+
+		handle_scroll();
+	}
+
+	onMount(handle_resize);
 </script>
+
+<svelte:window on:resize={handle_resize} />
 
 <div bind:this={viewport} class="viewport" on:scroll={handle_scroll}>
 	<div bind:this={results} class="results">
-		{#each movies as movie}
+		{#each movies.slice(a, b) as movie}
 			<a href="/movies/{movie.id}">
 				<img alt={movie.title} src={media(movie.poster_path, 500)} />
 			</a>
