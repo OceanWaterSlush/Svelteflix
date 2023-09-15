@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { media } from '$lib/api';
 	import type { MovieListResult } from '$lib/types';
-	import { onMount } from 'svelte';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	export let movies: MovieListResult[];
 	export let next: string | null;
+
+	const dispatch = createEventDispatcher();
 
 	let viewport: HTMLDivElement;
 	let results: HTMLDivElement;
@@ -21,6 +23,12 @@
 	let num_columns = 4;
 
 	function handle_scroll() {
+		const remaining = viewport.scrollHeight - (viewport.scrollTop + viewport.clientHeight);
+
+		if (remaining < 400) {
+			dispatch('end');
+		}
+
 		a = Math.floor(viewport.scrollTop / item_height) * num_columns;
 		b = Math.ceil((viewport.scrollTop + viewport.clientHeight) / item_height) * num_columns;
 
