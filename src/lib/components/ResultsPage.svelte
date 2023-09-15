@@ -21,7 +21,11 @@
 	let num_columns = 4;
 
 	function handle_scroll() {
-		console.log('scrolling');
+		a = Math.floor(viewport.scrollTop / item_height) * num_columns;
+		b = Math.ceil((viewport.scrollTop + viewport.clientHeight) / item_height) * num_columns;
+
+		padding_top = Math.floor(a / num_columns) * item_height;
+		padding_bottom = Math.floor((movies.length - b) / num_columns) * item_height;
 	}
 
 	function handle_resize() {
@@ -40,8 +44,15 @@
 
 <svelte:window on:resize={handle_resize} />
 
+<p>showing items {a} = {b}</p>
+
 <div bind:this={viewport} class="viewport" on:scroll={handle_scroll}>
-	<div bind:this={results} class="results">
+	<div
+		bind:this={results}
+		class="results"
+		style:padding_top="{padding_top}px"
+		style:padding_bottom="{padding_bottom}px"
+	>
 		{#each movies.slice(a, b) as movie}
 			<a href="/movies/{movie.id}">
 				<img alt={movie.title} src={media(movie.poster_path, 500)} />
@@ -56,7 +67,7 @@
 
 <style>
 	.viewport {
-		height: 500px;
+		height: 200px;
 
 		overflow-y: auto;
 	}
